@@ -86,12 +86,12 @@
 
 
 
-<meta name="description" content="title: Django rest framework源码分析date: 2018-12-16 11:12:58tags:discription: Django rest framework源码分析 一、基础1.1.安装两种方式：  github pip直接安装  1pip install djangorestframework  1.2.需要先了解的一些知识理解下面两个知识点非常重要，djan">
+<meta name="description" content="一、基础1.1.安装两种方式：  github pip直接安装  1pip install djangorestframework  1.2.需要先了解的一些知识理解下面两个知识点非常重要，django-rest-framework源码中到处都是基于CBV和面向对象的封装 （1）面向对象封装的两大特性 123把同一类方法封装到类中将数据封装到对象中  （2）CBV 基于反射实现根据请求方式不同，执">
 <meta property="og:type" content="article">
-<meta property="og:title" content="奕呀！">
-<meta property="og:url" content="http://yoursite.com/2019/09/07/2018-12-16-Django-rest-framework源码分析/index.html">
+<meta property="og:title" content="Django rest framework源码分析">
+<meta property="og:url" content="http://yoursite.com/2018/12/16/2018-12-16-Django-rest-framework源码分析/index.html">
 <meta property="og:site_name" content="奕呀！">
-<meta property="og:description" content="title: Django rest framework源码分析date: 2018-12-16 11:12:58tags:discription: Django rest framework源码分析 一、基础1.1.安装两种方式：  github pip直接安装  1pip install djangorestframework  1.2.需要先了解的一些知识理解下面两个知识点非常重要，djan">
+<meta property="og:description" content="一、基础1.1.安装两种方式：  github pip直接安装  1pip install djangorestframework  1.2.需要先了解的一些知识理解下面两个知识点非常重要，django-rest-framework源码中到处都是基于CBV和面向对象的封装 （1）面向对象封装的两大特性 123把同一类方法封装到类中将数据封装到对象中  （2）CBV 基于反射实现根据请求方式不同，执">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/1299879/201804/1299879-20180404001519020-215358301.png">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/1299879/201804/1299879-20180404002038848-380615159.png">
@@ -104,10 +104,10 @@
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/1299879/201804/1299879-20180404022319722-1860740291.png">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/1299879/201804/1299879-20180404022226996-802309711.png">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/1299879/201804/1299879-20180405110038137-843873057.png">
-<meta property="og:updated_time" content="2019-09-07T12:15:29.841Z">
+<meta property="og:updated_time" content="2019-09-07T12:19:55.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="奕呀！">
-<meta name="twitter:description" content="title: Django rest framework源码分析date: 2018-12-16 11:12:58tags:discription: Django rest framework源码分析 一、基础1.1.安装两种方式：  github pip直接安装  1pip install djangorestframework  1.2.需要先了解的一些知识理解下面两个知识点非常重要，djan">
+<meta name="twitter:title" content="Django rest framework源码分析">
+<meta name="twitter:description" content="一、基础1.1.安装两种方式：  github pip直接安装  1pip install djangorestframework  1.2.需要先了解的一些知识理解下面两个知识点非常重要，django-rest-framework源码中到处都是基于CBV和面向对象的封装 （1）面向对象封装的两大特性 123把同一类方法封装到类中将数据封装到对象中  （2）CBV 基于反射实现根据请求方式不同，执">
 <meta name="twitter:image" content="https://images2018.cnblogs.com/blog/1299879/201804/1299879-20180404001519020-215358301.png">
 
 
@@ -138,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/07/2018-12-16-Django-rest-framework源码分析/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/16/2018-12-16-Django-rest-framework源码分析/">
 
 
 
 
 
-  <title> | 奕呀！</title>
+  <title>Django rest framework源码分析 | 奕呀！</title>
   
 
 
@@ -303,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/2018-12-16-Django-rest-framework源码分析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/16/2018-12-16-Django-rest-framework源码分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="奕呀！">
@@ -320,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Django rest framework源码分析</h1>
         
 
         <div class="post-meta">
@@ -332,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-07T19:58:07+08:00">
-                2019-09-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-16T11:12:58+08:00">
+                2018-12-16
               </time>
             
 
@@ -351,8 +351,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/09/07/2018-12-16-Django-rest-framework源码分析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/07/2018-12-16-Django-rest-framework源码分析/" itemprop="commentCount"></span>
+                <a href="/2018/12/16/2018-12-16-Django-rest-framework源码分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/16/2018-12-16-Django-rest-framework源码分析/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -416,8 +416,7 @@
       
 
       
-        <p>title: Django rest framework源码分析<br>date: 2018-12-16 11:12:58<br>tags:<br>discription: Django rest framework源码分析</p>
-<h2 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h2><h3 id="1-1-安装"><a href="#1-1-安装" class="headerlink" title="1.1.安装"></a>1.1.安装</h3><p>两种方式：</p>
+        <h2 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h2><h3 id="1-1-安装"><a href="#1-1-安装" class="headerlink" title="1.1.安装"></a>1.1.安装</h3><p>两种方式：</p>
 <ul>
 <li><a href="https://github.com/encode/django-rest-framework" target="_blank" rel="noopener">github</a></li>
 <li>pip直接安装</li>
@@ -640,7 +639,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/09/07/2018-12-16-Django-rest-framework源码分析/" title>http://yoursite.com/2019/09/07/2018-12-16-Django-rest-framework源码分析/</a>
+    <a href="http://yoursite.com/2018/12/16/2018-12-16-Django-rest-framework源码分析/" title="Django rest framework源码分析">http://yoursite.com/2018/12/16/2018-12-16-Django-rest-framework源码分析/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
